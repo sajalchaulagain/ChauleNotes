@@ -1,0 +1,10 @@
+# ChauleNotes backend dependencies (Python 3.10+; verified with Python 3.14.8)
+# Install with: python -m pip install -r requirements.txt
+
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+firebase-admin>=6.5.0
+pydantic>=2.7.0
+python-dotenv>=1.0.1
+python-multipart>=0.0.9
+supabase>=2.0,<3.0

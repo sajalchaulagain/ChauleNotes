@@ -1,0 +1,19 @@
+rules_version = '2';
+
+// ChauleNotes Firebase Storage rules.
+//
+// File attachments are OPTIONAL and disabled on the free Spark plan. Uploads
+// are handled by the Python FastAPI backend with the Firebase Admin SDK, which
+// bypasses these rules, so browsers never need direct Storage access.
+//
+// If you enable Storage later (Blaze plan), keep this deny-all rule. The Python
+// API still enforces note ownership and admin roles before uploading/deleting.
+//
+// Deploy: Firebase Console -> Storage -> Rules -> paste this file -> Publish.
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
